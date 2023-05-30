@@ -1,11 +1,14 @@
-import { useEffect, useRef, useState } from "react";
-import { Form } from "react-router-dom";
+import { useContext, useEffect, useRef, useState } from "react";
+import { Form, Link } from "react-router-dom";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 const Login = () => {
     const captchaRef = useRef(null);
     const [disabled, setDisabled] = useState(true);
+
+    const {signIn} = useContext(AuthContext);
 
     useEffect(() => {
         loadCaptchaEnginge(6);
@@ -18,6 +21,13 @@ const Login = () => {
         const password = form.password.value;
 
         console.log(email, password);
+
+        signIn(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+        })
+
 
     }
 
@@ -52,12 +62,13 @@ const Login = () => {
                         <div className="form-control">
                             <LoadCanvasTemplate />
                             <input type="text" ref={captchaRef} name="captcha" placeholder="Captcha" className="input input-bordered" />
-                            <button  onClick={handleValidateCaptcha} className="btn btn-outline btn-xs">Validate</button>
+                            <button onClick={handleValidateCaptcha} className="btn btn-outline btn-xs">Validate</button>
                         </div>
                         <div className="form-control mt-6">
                             <input disabled={disabled} type="submit" value="Login" className="btn btn-primary" />
                         </div>
                     </Form>
+                    <p><small>New Here? <Link to="/signup">Create an Account</Link></small></p>
                 </div>
             </div>
         </div>
