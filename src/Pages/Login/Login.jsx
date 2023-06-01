@@ -83,7 +83,7 @@ const Login = () => {
                                 <input type="text" onBlur={handleValidateCaptcha} name="captcha" placeholder="Captcha" className="input input-bordered" />
                             </div>
                             <div className="form-control mt-6">
-                                <input disabled={disabled} type="submit" value="Login" className="btn btn-primary" />
+                                <input disabled={false} type="submit" value="Login" className="btn btn-primary" />
                             </div>
                         </Form>
                         <p><small>New Here? <Link to="/signup">Create an Account</Link></small></p>
