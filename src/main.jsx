@@ -8,9 +8,6 @@ import router from './Routes/Routes';
 import { HelmetProvider } from 'react-helmet-async';
 import AuthProvider from './provider/AuthProvider';
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
