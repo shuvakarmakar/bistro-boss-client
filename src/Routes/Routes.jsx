@@ -3,7 +3,9 @@ import Dashboard from "../Layout/Dashboard";
 import Main from "../Layout/Main";
 import AddItem from "../Pages/Dashboard/AddItem/AddItem";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Menu from "../Pages/Menu/Menu/Menu";
@@ -53,12 +55,21 @@ const router = createBrowserRouter([
         element: <MyCart></MyCart>
       },
       {
+        path: "payment",
+        element: <Payment></Payment>
+      },
+      // Admin Route
+      {
         path: "allUsers",
-        element: <AllUsers></AllUsers>
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
         path: "additem",
         element: <AdminRoute><AddItem></AddItem></AdminRoute>
+      },
+      {
+        path: "manageItems",
+        element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
       }
     ]
   }
