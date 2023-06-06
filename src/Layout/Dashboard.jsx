@@ -8,7 +8,6 @@ const Dashboard = () => {
 
     // TODO : Load Data From The Server to have Dynamic isAdmin based on Data
     // const isAdmin = true;
-
     const [isAdmin] = useAdmin();
 
 
@@ -26,7 +25,7 @@ const Dashboard = () => {
 
                     {
                         isAdmin ? <>
-                            <li><NavLink to="/dashboard/home"><FaHome></FaHome>
+                            <li><NavLink to="/dashboard/adminhome"><FaHome></FaHome>
                                 Admin Home</NavLink></li>
                             <li><NavLink to="/dashboard/additem"><FaUtensils></FaUtensils> Add an Item</NavLink></li>
                             <li><NavLink to="/dashboard/manageItems"><FaWallet></FaWallet> Manage Items</NavLink></li>
@@ -34,7 +33,7 @@ const Dashboard = () => {
                             <li><NavLink to="/dashboard/allusers"><FaUser></FaUser> All Users</NavLink></li>
                             
                         </> : <>
-                            <li><NavLink to="/dashboard/home"><FaHome></FaHome>
+                            <li><NavLink to="/dashboard/userhome"><FaHome></FaHome>
                                 User Home</NavLink></li>
                             <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
                             <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
